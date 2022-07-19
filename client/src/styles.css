@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.pexels.com/photos/1643113/pexels-photo-1643113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+}
