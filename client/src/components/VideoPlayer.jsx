@@ -1,9 +1,12 @@
 import React from 'react'
+import { Grid,Typography,Paper} from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
-const videoPlayer = () => {
+import { SocketContext } from '../SocketContext';
+const VideoPlayer = () => {
   return (
-    <div>videoPlayer</div>
+    <div>VideoPlayer</div>
   )
 }
 
-export default videoPlayer
+export default VideoPlayer

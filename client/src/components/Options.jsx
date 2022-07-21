@@ -1,9 +1,9 @@
 import React from 'react'
 
-const options = () => {
+const Options = ({children}) => {
   return (
-    <div>options</div>
+    <div>Options{children}</div>
   )
 }
 
-export default options
+export default Options
