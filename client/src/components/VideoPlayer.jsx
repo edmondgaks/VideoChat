@@ -1,11 +1,25 @@
-import React from 'react'
-import { Grid,Typography,Paper} from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import React, { useContext } from 'react'
+import { Grid,Typography,Paper} from '@mui/material';
+// import { makeStyles } from '@material-ui/styles';
 
 import { SocketContext } from '../SocketContext';
 const VideoPlayer = () => {
+  const {name,callAccepted,myVideo,userVideo,callEnded,stream,call} = useContext(SocketContext);
   return (
-    <div>VideoPlayer</div>
+    <Grid container>
+      <Paper>
+        <Grid item xs={12} md={6}>
+          <Typography variant='h2' gutterBottom>{name || 'name'}</Typography>
+          <video playsInline muted ref={myVideo} autoPlay />
+        </Grid>
+      </Paper>
+      <Paper>
+        <Grid item xs={12} md={6}>
+          <Typography variant='h2' gutterBottom>{call.name || 'name'}</Typography>
+          <video playsInline ref={userVideo} autoPlay />
+        </Grid>
+      </Paper>
+    </Grid>
   )
 }
 
