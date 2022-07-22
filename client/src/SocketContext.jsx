@@ -10,17 +10,17 @@ const ContextProvider = ({ children }) => {
     const [stream,setStream] = useState(null);
     const [me,setMe] = useState('');
     const [call,setCall] = useState([]);
-    const [callAccepted,setCallAccepted] = useState(false)
-    const [callEnded,setCallEnded] = useState(false)
+    const [callAccepted,setCallAccepted] = useState(false);
+    const [callEnded,setCallEnded] = useState(false);
     const [name,setName] = useState('');
     const myVideo = useRef();
     const userVideo = useRef();
-    const connectionRef = useRef()
+    const connectionRef = useRef();
     useEffect(() => {
         navigator.mediaDevices.getUserMedia({video:true,audio:true})
         .then((currentstream) => {
             setStream(currentstream)
-            myVideo.current.srcObject = currentstream;
+            myVideo.srcObject = currentstream;
         });
         socket.on('on', (id) => setMe(id))
         socket.on('calluser', ({from,name: callerName,signal}) => {
