@@ -6,7 +6,7 @@ const SocketContext = createContext();
 
 const socket = io('http://localhost:5000');
 
-const contextProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
     const [stream,setStream] = useState(null);
     const [me,setMe] = useState('');
     const [call,setCall] = useState([]);
@@ -40,7 +40,7 @@ const contextProvider = ({ children }) => {
         peer.signal(call.signal)
         connectionRef.current = peer;
     }
-    const callUser = () => {
+    const callUser = (id) => {
         const peer = new Peer({initiator: true,trickle: false,stream}); 
         peer.on('signal', (data) => {
             socket.emit('calluser', {userToCall: id,signalData: data,from: me,name})
@@ -60,6 +60,7 @@ const contextProvider = ({ children }) => {
         connectionRef.current.destroy();
         window.location.reload();
     }
+    
     return (
         <SocketContext.Provider value={{call,callAccepted,myVideo,userVideo,stream,name,setName,callEnded,me,callUser,leaveCall,answerCall}}>
             {children}
@@ -67,4 +68,4 @@ const contextProvider = ({ children }) => {
     )
 }
 
-export { contextProvider, SocketContext };
+export { ContextProvider, SocketContext };
