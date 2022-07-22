@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react'
 import { Button,TextField,Grid,Typography,Container,Paper } from '@mui/material';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Assignment,Phone,PhoneDisabled } from '@material-ui/icons';
+import { Assignment,Phone,PhoneDisabled } from '@mui/icons-material';
 import { SocketContext } from '../SocketContext';
 import './style.css';
 
