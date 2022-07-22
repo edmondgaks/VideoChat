@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useContext,useState } from 'react'
+import { Button,TextField,Grid,Typography,Container,Paper } from '@mui/material';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Assignement,Phone,PhoneDisabled } from '@mui/material';
+import { SocketContext } from '../SocketContext';
+import './style.css';
+
 
 const Options = ({children}) => {
+  const {me,name,setName,callAccepted,callEnded,leaveCall,callUser} = useContext(SocketContext);
+  const [idToCall,setIdToCall] = useState('');
   return (
-    <div>Options{children}</div>
+    <Container className="container">
+      <Paper elevation={10}  className="paper2">
+        <form className="root" noValidate autoComplete="off">
+          <Grid container className="grid-cont">
+            <Grid item xs={12} md={6} className="padding">
+              <Typography variant="h6" gutterBottom>Account Info</Typography>
+              <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
+              <CopyToClipboard text={me} className="margin">
+                <Button variant="contained" color="primary" fullWidth startIcon={<Assignement />}></Button>
+              </CopyToClipboard>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
+      {children}
+      </Container>
   )
 }
 

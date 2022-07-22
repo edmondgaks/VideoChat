@@ -21,3 +21,13 @@
     margin: 35px;
     padding: 0;
 }
+.margin {
+    margin-top: 20;
+}
+.padding {
+    padding: 20;
+}
+.paper2 {
+    padding: 10px 20px;
+    border: 2px solid black;
+}
