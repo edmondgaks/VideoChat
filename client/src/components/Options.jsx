@@ -1,7 +1,7 @@
 import React, { useContext,useState } from 'react'
 import { Button,TextField,Grid,Typography,Container,Paper } from '@mui/material';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { Assignement,Phone,PhoneDisabled } from '@mui/material';
+import { Assignment,Phone,PhoneDisabled } from '@material-ui/icons';
 import { SocketContext } from '../SocketContext';
 import './style.css';
 
@@ -18,7 +18,14 @@ const Options = ({children}) => {
               <Typography variant="h6" gutterBottom>Account Info</Typography>
               <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
               <CopyToClipboard text={me} className="margin">
-                <Button variant="contained" color="primary" fullWidth startIcon={<Assignement />}></Button>
+                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>Copy your Id</Button>
+              </CopyToClipboard>
+            </Grid>
+            <Grid item xs={12} md={6} className="padding">
+              <Typography variant="h6" gutterBottom>Account Info</Typography>
+              <TextField label="Name" value={name} onChange={(e) => setName(e.target.value)} fullWidth />
+              <CopyToClipboard text={me} className="margin">
+                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>Copy your Id</Button>
               </CopyToClipboard>
             </Grid>
           </Grid>
